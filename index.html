@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ff725e" />
+    <meta name="description" content="Snack Shack — bright, affordable lunchtime snacks for students." />
+    <title>Snack Shack | Lunchtime snacks</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="Snack Shack home">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="brand-copy"><strong>SNACK</strong><em>SHACK</em></span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a class="active" href="#menu">Menu <span>菜单</span></a>
+          <a href="#pickup">Pickup <span>取货</span></a>
+        </nav>
+
+        <button class="order-trigger" id="open-cart" type="button" aria-haspopup="dialog" aria-controls="cart-panel">
+          <span class="order-trigger-label">My order</span>
+          <span class="cart-count" id="cart-count">0</span>
+          <span class="order-trigger-total" id="header-total">$0.00</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.5 8.5h11l.8 10.5H5.7L6.5 8.5Zm3-1.5a2.5 2.5 0 0 1 5 0"/><path d="M9 12v3m6-3v3"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="spark">✦</span> student-run snack club <span class="cn">学生小食社</span></p>
+          <h1 id="hero-title">Big flavour.<br /><span>Small change.</span></h1>
+          <p class="hero-intro">Grab a bright little boost for your lunch break. See it, pick it, crunch it.</p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#menu">Shop the menu <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="#pickup">Where to pick up <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-note"><span class="note-dot"></span> Orders close at 11:45 AM · pickup at lunch</div>
+        </div>
+
+        <div class="hero-art" aria-label="Illustration of a snack bag and colorful treats">
+          <div class="sun-shape"></div>
+          <div class="hero-sticker sticker-yellow">LUNCH<br />BREAK<br /><small>ENERGY</small></div>
+          <div class="hero-doodle doodle-star">✦</div>
+          <div class="hero-doodle doodle-swirl">∿</div>
+          <div class="snack-bag">
+            <div class="bag-top"></div>
+            <div class="bag-label"><strong>SNACK<br />SHACK</strong><i>★</i></div>
+            <div class="bag-crinkles"><span></span><span></span><span></span></div>
+          </div>
+          <div class="hero-cookie cookie-one"></div>
+          <div class="hero-cookie cookie-two"></div>
+          <div class="hero-sparkle sparkle-one">✦</div>
+          <div class="hero-sparkle sparkle-two">✷</div>
+        </div>
+      </section>
+
+      <section class="marquee" aria-label="Snack club promise">
+        <div class="marquee-track"><span>GOOD SNACKS</span><b>✦</b><span>GOOD MOOD</span><b>✦</b><span>GOOD PRICE</span><b>✦</b><span>GOOD SNACKS</span><b>✦</b><span>GOOD MOOD</span><b>✦</b></div>
+      </section>
+
+      <section class="menu-section section-shell" id="menu" aria-labelledby="menu-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow coral-eyebrow">today's lineup <span class="cn">今日菜单</span></p>
+            <h2 id="menu-title">Pick your <span>happy.</span></h2>
+          </div>
+          <p class="section-blurb">Every snack is student-tested, lunch-break approved, and priced to keep your coins happy.</p>
+        </div>
+
+        <div class="filter-row" aria-label="Filter menu">
+          <button class="filter-button active" type="button" data-filter="all">All snacks <span>全部</span></button>
+          <button class="filter-button" type="button" data-filter="sweet">Sweet <span>甜</span></button>
+          <button class="filter-button" type="button" data-filter="savoury">Savoury <span>咸</span></button>
+          <button class="filter-button" type="button" data-filter="sips">Sips <span>饮料</span></button>
+        </div>
+
+        <div class="menu-grid" id="menu-grid" aria-live="polite"></div>
+        <p class="empty-menu" id="empty-menu" hidden>No snacks in this corner yet. Try another tab!</p>
+      </section>
+
+      <section class="pickup-section" id="pickup" aria-labelledby="pickup-title">
+        <div class="pickup-pattern" aria-hidden="true"></div>
+        <div class="pickup-inner section-shell">
+          <div class="pickup-copy">
+            <p class="eyebrow light-eyebrow">easy as 1–2–snack <span class="cn">取货信息</span></p>
+            <h2 id="pickup-title">See you at<br /><span>the shack.</span></h2>
+            <p>Order before the bell, then swing by the student lounge at lunch. Show your order name and grab your bag — no waiting around.</p>
+          </div>
+          <div class="pickup-details">
+            <div class="pickup-card">
+              <span class="detail-icon">⌖</span>
+              <div><small>FIND US</small><strong>Student lounge<br />by the library</strong></div>
+            </div>
+            <div class="pickup-card">
+              <span class="detail-icon">◷</span>
+              <div><small>PICKUP WINDOW</small><strong>12:10–12:40 PM<br />Every school day</strong></div>
+            </div>
+            <div class="pickup-card pickup-card-wide">
+              <span class="detail-icon">♡</span>
+              <div><small>GOOD TO KNOW</small><strong>Bring your student ID · Cash or school wallet accepted</strong></div>
+            </div>
+          </div>
+        </div>
+        <footer class="site-footer section-shell">
+          <span>© 2025 Snack Shack</span>
+          <span>Made by students, for students <span aria-hidden="true">✦</span></span>
+        </footer>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <div class="modal-backdrop" id="cart-backdrop" hidden></div>
+    <aside class="cart-panel" id="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+      <div class="cart-header">
+        <div><p class="eyebrow coral-eyebrow">your lunch lineup</p><h2 id="cart-title">My order <span id="cart-item-copy">(0 items)</span></h2></div>
+        <button class="icon-button" id="close-cart" type="button" aria-label="Close order panel">×</button>
+      </div>
+      <div class="cart-content" id="cart-content"></div>
+      <div class="cart-footer" id="cart-footer">
+        <div class="total-row"><span>Estimated total</span><strong id="cart-total">$0.00</strong></div>
+        <button class="button button-coral button-full" id="place-order" type="button" disabled>Place preorder <span aria-hidden="true">→</span></button>
+        <p class="cart-footnote">You’ll pick up and pay at the Snack Shack.</p>
+      </div>
+    </aside>
+
+    <script src="script.js"></script>
+  </body>
+</html>
