@@ -1,135 +1,95 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#ff725e" />
-    <meta name="description" content="Snack Shack — bright, affordable lunchtime snacks for students." />
-    <title>Snack Shack | Lunchtime snacks</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="header-inner">
-        <a class="brand" href="#top" aria-label="Snack Shack home">
-          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-          <span class="brand-copy"><strong>SNACK</strong><em>SHACK</em></span>
-        </a>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff8e7">
+  <meta name="description" content="PlayPop 儿童小游戏乐园：贪吃蛇、塔防和经营游戏。">
+  <title>PlayPop · 小游戏乐园</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="site-sparkles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
 
-        <nav class="main-nav" aria-label="Main navigation">
-          <a class="active" href="#menu">Menu <span>菜单</span></a>
-          <a href="#pickup">Pickup <span>取货</span></a>
-        </nav>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="返回 PlayPop 首页">
+      <span class="brand-mark"><span>▶</span></span>
+      <span class="brand-name">PLAY<span>POP</span></span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a class="nav-link is-active" href="#home">游戏大厅</a>
+      <a class="nav-link" href="#how-to-play">怎么玩</a>
+    </nav>
+    <div class="player-pill" aria-label="玩家状态"><span class="player-dot"></span><span id="welcome-name">小玩家</span><span class="player-stars">✦ <b id="total-stars">0</b></span></div>
+  </header>
 
-        <button class="order-trigger" id="open-cart" type="button" aria-haspopup="dialog" aria-controls="cart-panel">
-          <span class="order-trigger-label">My order</span>
-          <span class="cart-count" id="cart-count">0</span>
-          <span class="order-trigger-total" id="header-total">$0.00</span>
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.5 8.5h11l.8 10.5H5.7L6.5 8.5Zm3-1.5a2.5 2.5 0 0 1 5 0"/><path d="M9 12v3m6-3v3"/></svg>
-        </button>
+  <main id="home" class="home-view">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> 今天也要玩得开心！</div>
+        <h1 id="hero-title">选择一个游戏<br><em>马上开始玩！</em></h1>
+        <p>好玩的小游戏，随时打开，点一下就能出发。你今天想挑战哪一个？</p>
+        <a class="jump-button" href="#game-shelf">去挑游戏 <span>↓</span></a>
       </div>
-    </header>
-
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="spark">✦</span> student-run snack club <span class="cn">学生小食社</span></p>
-          <h1 id="hero-title">Big flavour.<br /><span>Small change.</span></h1>
-          <p class="hero-intro">Grab a bright little boost for your lunch break. See it, pick it, crunch it.</p>
-          <div class="hero-actions">
-            <a class="button button-dark" href="#menu">Shop the menu <span aria-hidden="true">↓</span></a>
-            <a class="text-link" href="#pickup">Where to pick up <span aria-hidden="true">↗</span></a>
-          </div>
-          <div class="hero-note"><span class="note-dot"></span> Orders close at 11:45 AM · pickup at lunch</div>
-        </div>
-
-        <div class="hero-art" aria-label="Illustration of a snack bag and colorful treats">
-          <div class="sun-shape"></div>
-          <div class="hero-sticker sticker-yellow">LUNCH<br />BREAK<br /><small>ENERGY</small></div>
-          <div class="hero-doodle doodle-star">✦</div>
-          <div class="hero-doodle doodle-swirl">∿</div>
-          <div class="snack-bag">
-            <div class="bag-top"></div>
-            <div class="bag-label"><strong>SNACK<br />SHACK</strong><i>★</i></div>
-            <div class="bag-crinkles"><span></span><span></span><span></span></div>
-          </div>
-          <div class="hero-cookie cookie-one"></div>
-          <div class="hero-cookie cookie-two"></div>
-          <div class="hero-sparkle sparkle-one">✦</div>
-          <div class="hero-sparkle sparkle-two">✷</div>
-        </div>
-      </section>
-
-      <section class="marquee" aria-label="Snack club promise">
-        <div class="marquee-track"><span>GOOD SNACKS</span><b>✦</b><span>GOOD MOOD</span><b>✦</b><span>GOOD PRICE</span><b>✦</b><span>GOOD SNACKS</span><b>✦</b><span>GOOD MOOD</span><b>✦</b></div>
-      </section>
-
-      <section class="menu-section section-shell" id="menu" aria-labelledby="menu-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow coral-eyebrow">today's lineup <span class="cn">今日菜单</span></p>
-            <h2 id="menu-title">Pick your <span>happy.</span></h2>
-          </div>
-          <p class="section-blurb">Every snack is student-tested, lunch-break approved, and priced to keep your coins happy.</p>
-        </div>
-
-        <div class="filter-row" aria-label="Filter menu">
-          <button class="filter-button active" type="button" data-filter="all">All snacks <span>全部</span></button>
-          <button class="filter-button" type="button" data-filter="sweet">Sweet <span>甜</span></button>
-          <button class="filter-button" type="button" data-filter="savoury">Savoury <span>咸</span></button>
-          <button class="filter-button" type="button" data-filter="sips">Sips <span>饮料</span></button>
-        </div>
-
-        <div class="menu-grid" id="menu-grid" aria-live="polite"></div>
-        <p class="empty-menu" id="empty-menu" hidden>No snacks in this corner yet. Try another tab!</p>
-      </section>
-
-      <section class="pickup-section" id="pickup" aria-labelledby="pickup-title">
-        <div class="pickup-pattern" aria-hidden="true"></div>
-        <div class="pickup-inner section-shell">
-          <div class="pickup-copy">
-            <p class="eyebrow light-eyebrow">easy as 1–2–snack <span class="cn">取货信息</span></p>
-            <h2 id="pickup-title">See you at<br /><span>the shack.</span></h2>
-            <p>Order before the bell, then swing by the student lounge at lunch. Show your order name and grab your bag — no waiting around.</p>
-          </div>
-          <div class="pickup-details">
-            <div class="pickup-card">
-              <span class="detail-icon">⌖</span>
-              <div><small>FIND US</small><strong>Student lounge<br />by the library</strong></div>
-            </div>
-            <div class="pickup-card">
-              <span class="detail-icon">◷</span>
-              <div><small>PICKUP WINDOW</small><strong>12:10–12:40 PM<br />Every school day</strong></div>
-            </div>
-            <div class="pickup-card pickup-card-wide">
-              <span class="detail-icon">♡</span>
-              <div><small>GOOD TO KNOW</small><strong>Bring your student ID · Cash or school wallet accepted</strong></div>
-            </div>
-          </div>
-        </div>
-        <footer class="site-footer section-shell">
-          <span>© 2025 Snack Shack</span>
-          <span>Made by students, for students <span aria-hidden="true">✦</span></span>
-        </footer>
-      </section>
-    </main>
-
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-    <div class="modal-backdrop" id="cart-backdrop" hidden></div>
-    <aside class="cart-panel" id="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
-      <div class="cart-header">
-        <div><p class="eyebrow coral-eyebrow">your lunch lineup</p><h2 id="cart-title">My order <span id="cart-item-copy">(0 items)</span></h2></div>
-        <button class="icon-button" id="close-cart" type="button" aria-label="Close order panel">×</button>
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-sun"></div>
+        <div class="hero-cloud cloud-one"></div><div class="hero-cloud cloud-two"></div>
+        <div class="hero-island"><span class="island-dot dot-a"></span><span class="island-dot dot-b"></span><span class="island-dot dot-c"></span></div>
+        <div class="hero-planet planet-blue">✦</div><div class="hero-planet planet-pink">●</div>
+        <div class="hero-bubble bubble-one">★</div><div class="hero-bubble bubble-two">+</div><div class="hero-bubble bubble-three">♥</div>
+        <div class="hero-character"><span class="char-hat"></span><span class="char-face"><b></b><b></b><i></i></span><span class="char-body"></span><span class="char-leg leg-left"></span><span class="char-leg leg-right"></span></div>
+        <div class="hero-confetti confetti-a"></div><div class="hero-confetti confetti-b"></div><div class="hero-confetti confetti-c"></div><div class="hero-confetti confetti-d"></div>
       </div>
-      <div class="cart-content" id="cart-content"></div>
-      <div class="cart-footer" id="cart-footer">
-        <div class="total-row"><span>Estimated total</span><strong id="cart-total">$0.00</strong></div>
-        <button class="button button-coral button-full" id="place-order" type="button" disabled>Place preorder <span aria-hidden="true">→</span></button>
-        <p class="cart-footnote">You’ll pick up and pay at the Snack Shack.</p>
-      </div>
-    </aside>
+    </section>
 
-    <script src="script.js"></script>
-  </body>
+    <section id="how-to-play" class="how-section" aria-labelledby="how-title">
+      <div class="how-copy"><span class="section-kicker">SUPER SIMPLE</span><h2 id="how-title">三步就能玩</h2><p>不用注册，不用等待。选一个喜欢的游戏，马上开始你的冒险。</p></div>
+      <div class="steps"><div class="step"><b>01</b><span>挑选游戏</span><i>☝</i></div><div class="step"><b>02</b><span>点击开始</span><i>✦</i></div><div class="step"><b>03</b><span>玩得开心</span><i>♥</i></div></div>
+    </section>
+
+    <section id="game-shelf" class="games-section" aria-labelledby="games-title">
+      <div class="section-heading"><div><span class="section-kicker">PLAY &amp; REPLAY</span><h2 id="games-title">热门游戏</h2></div><span class="game-count">3 个游戏等你来玩 <span>→</span></span></div>
+      <div class="game-grid">
+        <article class="game-card snake-card" data-game="snake">
+          <div class="card-topline"><span class="game-tag">反应力</span><span class="card-shape">✦</span></div>
+          <div class="preview-window snake-preview" aria-hidden="true"><span class="preview-grid"></span><span class="snake-preview-body"></span><span class="snake-preview-food">✦</span><span class="preview-score">038</span></div>
+          <div class="card-info"><div><h3>彩虹贪吃蛇</h3><p>吃掉星星，越长越厉害！</p></div><span class="card-arrow">↗</span></div>
+          <button class="play-card-button" data-game="snake">开始玩 <span>→</span></button>
+        </article>
+        <article class="game-card defense-card" data-game="defense">
+          <div class="card-topline"><span class="game-tag">策略力</span><span class="card-shape">✹</span></div>
+          <div class="preview-window defense-preview" aria-hidden="true"><span class="defense-path"></span><span class="defense-tower tower-one">▲</span><span class="defense-tower tower-two">▲</span><span class="defense-enemy enemy-one">●</span><span class="defense-enemy enemy-two">●</span><span class="defense-shot shot-one"></span></div>
+          <div class="card-info"><div><h3>星星塔防队</h3><p>搭建炮塔，守护彩虹基地！</p></div><span class="card-arrow">↗</span></div>
+          <button class="play-card-button" data-game="defense">开始玩 <span>→</span></button>
+        </article>
+        <article class="game-card shop-card" data-game="shop">
+          <div class="card-topline"><span class="game-tag">创造力</span><span class="card-shape">♥</span></div>
+          <div class="preview-window shop-preview" aria-hidden="true"><span class="shop-sun">☀</span><span class="shop-awning"></span><span class="shop-counter"></span><span class="shop-jar">●</span><span class="shop-customer">♟</span><span class="shop-coin coin-one">$</span><span class="shop-coin coin-two">$</span></div>
+          <div class="card-info"><div><h3>糖果小店长</h3><p>经营你的甜甜小店吧！</p></div><span class="card-arrow">↗</span></div>
+          <button class="play-card-button" data-game="shop">开始玩 <span>→</span></button>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <section id="game-screen" class="game-screen" aria-hidden="true">
+    <button class="exit-button" id="exit-game" type="button"><span>←</span> 退出游戏</button>
+    <div class="game-shell">
+      <div class="game-heading"><div><span class="section-kicker" id="active-kicker">READY?</span><h2 id="active-title">彩虹贪吃蛇</h2><p id="active-subtitle">用方向键或下面的按钮移动小蛇</p></div><div class="live-score"><span>本局得分</span><strong id="active-score">0</strong></div></div>
+      <div id="snake-game" class="game-panel" hidden>
+        <div class="snake-layout"><div class="snake-board-wrap"><div id="snake-board" class="snake-board" role="grid" aria-label="贪吃蛇游戏区域"></div><div class="game-hint">方向键 / WASD 移动 · 吃到星星得分</div></div><div class="side-controls"><div class="control-card"><span class="control-label">最高分</span><strong id="snake-best">0</strong></div><button class="big-action coral-action" id="snake-start" type="button">开始游戏 <span>→</span></button><div class="d-pad" aria-label="移动按钮"><button data-dir="up">↑</button><div><button data-dir="left">←</button><button data-dir="down">↓</button><button data-dir="right">→</button></div></div></div></div>
+      </div>
+      <div id="defense-game" class="game-panel" hidden>
+        <div class="defense-layout"><div class="defense-board-wrap"><div id="defense-board" class="defense-board" aria-label="塔防地图"></div><div class="game-hint">点击空地建造炮塔 · 防守 3 波怪物</div></div><div class="side-controls"><div class="resource-card"><span>彩虹能量</span><strong>⚡ <b id="defense-energy">90</b></strong></div><button class="big-action purple-action" id="defense-start" type="button">开始第 1 波 <span>→</span></button><div class="tower-legend"><span><i class="legend-tower"></i>炮塔 <b>30</b></span><span><i class="legend-base"></i>基地</span></div><p class="tiny-note">炮塔会自动瞄准最近的怪物！</p></div></div>
+      </div>
+      <div id="shop-game" class="game-panel" hidden>
+        <div class="shop-layout"><div class="shop-scene"><div class="shop-night"></div><div class="shop-sign">糖果<br><small>小店</small></div><div class="shop-shelf shelf-a"></div><div class="shop-shelf shelf-b"></div><div class="shop-product product-a">🍭</div><div class="shop-product product-b">🍩</div><div class="shop-product product-c">🧁</div><div class="shop-door"></div><div class="shop-visitor">●</div></div><div class="side-controls"><div class="shop-stats"><div><span>金币</span><strong>🪙 <b id="shop-coins">0</b></strong></div><div><span>人气</span><strong>♥ <b id="shop-fame">1</b></strong></div></div><button class="big-action yellow-action" id="shop-sell" type="button">卖出一份糖果 <span>+5 金币</span></button><button class="upgrade-button" id="shop-upgrade" type="button">升级店铺 <span>20 🪙</span></button><p class="tiny-note">卖得越多，来店里的客人越多！</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
 </html>
