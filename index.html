@@ -20,7 +20,7 @@
       <a class="nav-link is-active" href="#home">游戏大厅</a>
       <a class="nav-link" href="#how-to-play">怎么玩</a>
     </nav>
-    <div class="player-pill" aria-label="玩家状态"><span class="player-dot"></span><span id="welcome-name">小玩家</span><span class="player-stars">✦ <b id="total-stars">0</b></span></div>
+    <div class="player-pill" aria-label="玩家状态"><span class="player-dot"></span><span id="welcome-name">小玩家</span><span class="player-stars">🪙 <b id="wallet-top">0</b></span></div>
   </header>
 
   <main id="home" class="home-view">
@@ -52,21 +52,27 @@
       <div class="game-grid">
         <article class="game-card snake-card" data-game="snake">
           <div class="card-topline"><span class="game-tag">反应力</span><span class="card-shape">✦</span></div>
-          <div class="preview-window snake-preview" aria-hidden="true"><span class="preview-grid"></span><span class="snake-preview-body"></span><span class="snake-preview-food">✦</span><span class="preview-score">038</span></div>
+          <div class="preview-window snake-preview" aria-hidden="true"><div id="home-snake-preview" class="mini-snake-board"></div><span class="preview-status">实机游戏画面</span></div>
           <div class="card-info"><div><h3>彩虹贪吃蛇</h3><p>吃掉星星，越长越厉害！</p></div><span class="card-arrow">↗</span></div>
           <button class="play-card-button" data-game="snake">开始玩 <span>→</span></button>
         </article>
         <article class="game-card defense-card" data-game="defense">
           <div class="card-topline"><span class="game-tag">策略力</span><span class="card-shape">✹</span></div>
-          <div class="preview-window defense-preview" aria-hidden="true"><span class="defense-path"></span><span class="defense-tower tower-one">▲</span><span class="defense-tower tower-two">▲</span><span class="defense-enemy enemy-one">●</span><span class="defense-enemy enemy-two">●</span><span class="defense-shot shot-one"></span></div>
+          <div class="preview-window defense-preview" aria-hidden="true"><div id="home-defense-preview" class="mini-defense-board"></div><span class="preview-status">实机游戏画面</span></div>
           <div class="card-info"><div><h3>星星塔防队</h3><p>搭建炮塔，守护彩虹基地！</p></div><span class="card-arrow">↗</span></div>
           <button class="play-card-button" data-game="defense">开始玩 <span>→</span></button>
         </article>
         <article class="game-card shop-card" data-game="shop">
           <div class="card-topline"><span class="game-tag">创造力</span><span class="card-shape">♥</span></div>
-          <div class="preview-window shop-preview" aria-hidden="true"><span class="shop-sun">☀</span><span class="shop-awning"></span><span class="shop-counter"></span><span class="shop-jar">●</span><span class="shop-customer">♟</span><span class="shop-coin coin-one">$</span><span class="shop-coin coin-two">$</span></div>
+          <div class="preview-window shop-preview" aria-hidden="true"><div id="home-shop-preview" class="mini-shop-scene"></div><span class="preview-status">实机游戏画面</span></div>
           <div class="card-info"><div><h3>糖果小店长</h3><p>经营你的甜甜小店吧！</p></div><span class="card-arrow">↗</span></div>
           <button class="play-card-button" data-game="shop">开始玩 <span>→</span></button>
+        </article>
+        <article class="game-card platformer-card" data-game="platformer">
+          <div class="card-topline"><span class="game-tag">动作力</span><span class="card-shape">★</span></div>
+          <div class="preview-window platformer-preview" aria-hidden="true"><span class="preview-status">游戏内画面</span><span class="platformer-cloud cloud-p-one"></span><span class="platformer-cloud cloud-p-two"></span><span class="platformer-ground"></span><span class="platformer-hero-mini">●</span><span class="platformer-monster-mini">◆</span><span class="platformer-platform platform-p-one"></span><span class="platformer-platform platform-p-two"></span><span class="preview-caption">跳过怪物！</span></div>
+          <div class="card-info"><div><h3>跳跳冒险岛</h3><p>跳过怪物，踩着它们闯到终点！</p></div><span class="card-arrow">↗</span></div>
+          <button class="play-card-button" id="platformer-card-button" data-game="platformer">去商店解锁 <span>→</span></button>
         </article>
       </div>
     </section>
@@ -81,11 +87,25 @@
         <div class="snake-layout"><div class="snake-board-wrap"><div id="snake-board" class="snake-board" role="grid" aria-label="贪吃蛇游戏区域"></div><div class="game-hint">方向键 / WASD 移动 · 吃到星星得分</div></div><div class="side-controls"><div class="control-card"><span class="control-label">最高分</span><strong id="snake-best">0</strong></div><button class="big-action coral-action" id="snake-start" type="button">开始游戏 <span>→</span></button><div class="d-pad" aria-label="移动按钮"><button data-dir="up">↑</button><div><button data-dir="left">←</button><button data-dir="down">↓</button><button data-dir="right">→</button></div></div></div></div>
       </div>
       <div id="defense-game" class="game-panel" hidden>
-        <div class="defense-layout"><div class="defense-board-wrap"><div id="defense-board" class="defense-board" aria-label="塔防地图"></div><div class="game-hint">点击空地建造炮塔 · 防守 3 波怪物</div></div><div class="side-controls"><div class="resource-card"><span>彩虹能量</span><strong>⚡ <b id="defense-energy">90</b></strong></div><button class="big-action purple-action" id="defense-start" type="button">开始第 1 波 <span>→</span></button><div class="tower-legend"><span><i class="legend-tower"></i>炮塔 <b>30</b></span><span><i class="legend-base"></i>基地</span></div><p class="tiny-note">炮塔会自动瞄准最近的怪物！</p></div></div>
+        <div class="defense-layout"><div class="defense-board-wrap"><div id="defense-board" class="defense-board" aria-label="塔防地图"></div><div class="game-hint">先点击“建造炮塔”，再点击地图上的空位</div></div><div class="side-controls"><div class="resource-card"><span>彩虹能量</span><strong>⚡ <b id="defense-energy">90</b></strong><span class="resource-secondary">基地生命 <b id="defense-base-health">100</b>%</span></div><button class="big-action purple-action" id="defense-start" type="button">开始第 1 波 <span>→</span></button><button class="build-tower-button" id="defense-build-mode" type="button">🔨 建造炮塔 <span>30 ⚡</span></button><div class="tower-legend"><span><i class="legend-tower"></i>炮塔会自动开火</span><span><i class="legend-base"></i>保护彩虹基地</span></div><p class="tiny-note">先进入建造模式，再点空位。怪物会从左边走来，炮弹命中后血量会下降！</p></div></div>
       </div>
       <div id="shop-game" class="game-panel" hidden>
-        <div class="shop-layout"><div class="shop-scene"><div class="shop-night"></div><div class="shop-sign">糖果<br><small>小店</small></div><div class="shop-shelf shelf-a"></div><div class="shop-shelf shelf-b"></div><div class="shop-product product-a">🍭</div><div class="shop-product product-b">🍩</div><div class="shop-product product-c">🧁</div><div class="shop-door"></div><div class="shop-visitor">●</div></div><div class="side-controls"><div class="shop-stats"><div><span>金币</span><strong>🪙 <b id="shop-coins">0</b></strong></div><div><span>人气</span><strong>♥ <b id="shop-fame">1</b></strong></div></div><button class="big-action yellow-action" id="shop-sell" type="button">卖出一份糖果 <span>+5 金币</span></button><button class="upgrade-button" id="shop-upgrade" type="button">升级店铺 <span>20 🪙</span></button><p class="tiny-note">卖得越多，来店里的客人越多！</p></div></div>
+        <div class="shop-layout"><div class="shop-scene"><div class="shop-night"></div><div class="shop-sign">糖果<br><small>小店</small></div><div class="shop-shelf shelf-a"></div><div class="shop-shelf shelf-b"></div><button class="shop-product product-a food-button" data-food="lollipop" type="button" aria-label="棒棒糖">🍭</button><button class="shop-product product-b food-button" data-food="donut" type="button" aria-label="甜甜圈">🍩</button><button class="shop-product product-c food-button" data-food="cupcake" type="button" aria-label="纸杯蛋糕">🧁</button><div class="shop-door"></div><div id="shop-order-bubble" class="shop-order-bubble" aria-live="polite"></div><div id="shop-customer" class="shop-customer" hidden><span class="customer-hair"></span><span class="customer-face"><i></i><i></i><b></b></span><span class="customer-shirt"></span><span class="customer-leg customer-leg-a"></span><span class="customer-leg customer-leg-b"></span></div></div><div class="side-controls"><div class="shop-stats"><div><span>金币</span><strong>🪙 <b id="shop-coins">0</b></strong></div><div><span>人气</span><strong>♥ <b id="shop-fame">1</b></strong></div></div><div class="food-menu"><span class="food-menu-title">顾客说想吃：</span><p id="shop-order-label">正在等客人走进来…</p><div class="food-menu-tip">点击货架上的食物交给他</div></div><button class="upgrade-button" id="shop-upgrade" type="button">升级店铺 <span>20 🪙</span></button><p class="tiny-note">先听清顾客想吃什么，再点击对应的食物才能赚钱！</p></div></div>
       </div>
+      <div id="platformer-game" class="game-panel" hidden>
+        <div class="platformer-layout"><div class="platformer-board-wrap"><canvas id="platformer-canvas" width="900" height="440" aria-label="跳跳冒险岛游戏区域"></canvas><div class="game-hint">← → / A D 移动 · ↑ / W / 空格跳跃 · 跳过或踩扁怪物</div></div><div class="side-controls"><div class="control-card"><span class="control-label">关卡进度</span><strong id="platformer-progress">0%</strong></div><button class="big-action coral-action" id="platformer-start" type="button">开始冒险 <span>→</span></button><div class="d-pad platformer-controls" aria-label="跳跃控制"><button data-platformer-dir="left">←</button><button data-platformer-dir="jump">↑</button><button data-platformer-dir="right">→</button></div><p class="tiny-note">从左往右前进，看到怪物就跳起来！到达彩旗就算通关。</p></div></div>
+      </div>
+      <section id="game-store" class="game-store" aria-labelledby="store-title">
+        <div class="store-heading"><div><span class="section-kicker">PLAY &amp; EARN</span><h3 id="store-title">游戏商店</h3><p>胜利、通关、坚持得越久，就能赚更多金币。</p></div><div class="wallet-card"><span>我的金币</span><strong>🪙 <b id="wallet-coins">0</b></strong></div></div>
+        <div class="store-progress"><span>本次游玩 <b id="game-time">00:00</b></span><span>经过关卡 <b id="game-levels">0</b></span><span>预计奖励 <b id="session-reward">0</b> 金币</span></div>
+        <div class="store-grid">
+          <button class="store-item" data-store-item="snake-skin" type="button"><span class="store-art store-art-snake">🐍</span><span class="store-item-copy"><b>糖果彩虹蛇</b><small>贪吃蛇皮肤</small></span><span class="store-item-action"><b>35 🪙</b><small>购买</small></span></button>
+          <button class="store-item" data-store-item="tower-skin" type="button"><span class="store-art store-art-tower">🚀</span><span class="store-item-copy"><b>星光炮塔</b><small>塔防炮塔皮肤</small></span><span class="store-item-action"><b>50 🪙</b><small>购买</small></span></button>
+          <button class="store-item" data-store-item="shop-skin" type="button"><span class="store-art store-art-shop">✨</span><span class="store-item-copy"><b>霓虹小店</b><small>经营游戏皮肤</small></span><span class="store-item-action"><b>65 🪙</b><small>购买</small></span></button>
+          <button class="store-item new-game-store-item" data-store-item="platformer" type="button"><span class="store-art store-art-game">🏝️</span><span class="store-item-copy"><b>跳跳冒险岛</b><small>解锁新游戏</small></span><span class="store-item-action"><b>80 🪙</b><small>解锁</small></span></button>
+        </div>
+        <p class="store-tip">买到皮肤后，再点击它就能选择“使用中”；选择的皮肤会在下一局游戏里出现。</p>
+      </section>
     </div>
   </section>
 
