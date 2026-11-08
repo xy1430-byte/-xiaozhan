@@ -19,7 +19,9 @@
     <nav class="main-nav" aria-label="主导航">
       <a class="nav-link is-active" href="#home">游戏大厅</a>
       <a class="nav-link" href="#how-to-play">怎么玩</a>
+      <a class="nav-link store-nav-link" href="#game-store" data-open-store>游戏商店</a>
     </nav>
+    <button class="top-store-button" type="button" data-open-store>🛍️ 商店</button>
     <div class="player-pill" aria-label="玩家状态"><span class="player-dot"></span><span id="welcome-name">小玩家</span><span class="player-stars">🪙 <b id="wallet-top">0</b></span></div>
   </header>
 
@@ -75,6 +77,12 @@
           <button class="play-card-button" id="platformer-card-button" data-game="platformer">去商店解锁 <span>→</span></button>
         </article>
       </div>
+    </section>
+
+    <section class="home-store-spotlight" aria-labelledby="home-store-title">
+      <div class="home-store-copy"><span class="section-kicker">PLAY &amp; EARN</span><h2 id="home-store-title">游戏商店</h2><p>玩游戏赢金币，购买皮肤，还能解锁新的跳跃冒险。</p></div>
+      <div class="home-store-items" aria-hidden="true"><span>🐍</span><span>🚀</span><span>✨</span><span>🏝️</span></div>
+      <button class="home-store-button" type="button" data-open-store>打开游戏商店 <span>→</span></button>
     </section>
 
   </main>

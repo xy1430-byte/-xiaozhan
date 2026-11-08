@@ -82,8 +82,9 @@
   function closeGame() { stopSnake(); stopDefense(); stopShop(); stopPlatformer(); stopSession(); screen.classList.remove('is-open'); screen.setAttribute('aria-hidden', 'true'); home.style.display = ''; window.scrollTo({ top: 0, behavior: 'smooth' }); activeGame = null; }
   $$('.play-card-button').forEach(button => button.addEventListener('click', () => openGame(button.dataset.game)));
   $$('.game-card').forEach(card => card.addEventListener('click', (event) => { if (!event.target.closest('button')) openGame(card.dataset.game); }));
+  $$('[data-open-store]').forEach(button => button.addEventListener('click', (event) => { event.preventDefault(); openStore(); }));
   $('#exit-game').addEventListener('click', closeGame);
-  $$('.nav-link').forEach(link => link.addEventListener('click', () => { if (activeGame) closeGame(); }));
+  $$('.nav-link').forEach(link => link.addEventListener('click', () => { if (!link.hasAttribute('data-open-store') && activeGame) closeGame(); }));
 
   // Rainbow Snake
   const snakeBoard = $('#snake-board');
